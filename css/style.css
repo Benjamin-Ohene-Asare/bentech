@@ -103,7 +103,22 @@ color: var(--color) ;
 
 
 
-
+.banner-container{
+    position: relative;
+    width: 100%;
+    min-height: 85vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url(/img/meess.jpg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color);
+    padding: 0 10px;
+} 
 
 .banner-container h1{
     font-size: 5rem;
