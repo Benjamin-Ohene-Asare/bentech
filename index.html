@@ -4,15 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ben Tech</title>
+    <title>BenTech - IT Solutions and Web Development Expert</title>
+
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Benjamin offers IT solutions, web development, graphic design, and digital marketing services tailored for businesses and individuals. Contact for professional solutions!">
+    <meta name="description" content="Ghana web developer">
+
+<meta name="description" content="Pentecost Univeristy">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-
 
 </head>
 
@@ -70,21 +73,17 @@
     <!-- about me -->
     <div class="about-me-container" id="about">
         <div class="heading">
-            <h2>About Me</h2>
+           
         </div>
         <div class="about">
             <div class="about-img">
                 <img src="img/me.jpg" alt="">
-                <div class="small-img">
-                    <img src="img/mee.jpg" alt="">
-                </div>
-                <div class="experience">
-                    <h3>2+</h3>
-                    <p> experience</p>
-                </div>
+              
+               
             </div>
 
             <div class="about-text">
+                <h2>About Me</h2> <br>
 
 
                 <p>Hello, and welcome to my portfolio! I'm a versatile web designer, developer, and IT professional,
@@ -117,7 +116,7 @@
             <h2>My Service</h2>
         </div>
         <div class="service-container">
-            <div class="service">
+            <div class="service scroll-element from-left">
                 <img src="img/img.jpg" alt="">
                 <div class="sercive-text">
                     <i class="fa-sharp-duotone fa-solid fa-code"></i>
@@ -128,7 +127,7 @@
 
                 </div>
             </div>
-            <div class="service">
+            <div class="service scroll-element from-right">
                 <img src="img/banner.jpg" alt="">
                 <div class="sercive-text">
                     <i class="fa-solid fa-pen-nib"></i>
@@ -141,8 +140,22 @@
 
                 </div>
             </div>
-            <div class="service">
+            <div class="service scroll-element from-bottom">
                 <img src="img/mee.jpg" alt="">
+                <div class="sercive-text">
+                    <i class="fa-solid fa-database"></i>
+                    <h4>
+                        Database Development
+
+                    </h4>
+                    <p>I offer robust database solutions to streamline your operations. From designing database
+                        structures to managing data security and performance, I ensure your data is organized, secure,
+                        and scalable to meet future growth.</p>
+
+                </div>
+            </div>
+            <div class="service scroll-element from-bottom">
+                <img src="img/m.jpg" alt="">
                 <div class="sercive-text">
                     <i class="fa-solid fa-database"></i>
                     <h4>
@@ -164,7 +177,7 @@
 
 
     <!-- portoflio -->
-    <div class="portfolio-container" id="port">
+    <div class="portfolio-container scroll-element from-bottom" id="port">
         <div class="heading">
             <h2>Portfolio</h2>
         </div>
@@ -183,6 +196,22 @@
 
 
 
+    <div class="banner-center scroll-element from-bottom">
+        <h2>I love creating and <br> solving problems</h2> <br>
+       
+        <p>There's a unique satisfaction in building solutions from scratch and tackling challenges head-on. <br> Every problem presents an opportunity to innovate, refine my skills, and make a meaningful impact. <br> Whether it’s coding a complex application, designing intuitive interfaces, or brainstorming ideas, <br> I thrive on the journey of turning ideas into reality and overcoming obstacles along the way </p>
+        <a href="" class="book-me"> Send me a message</a>
+    </div>
+
+
+
+
+
+
+
+
+
+
 
     <!-- my skilles -->
     <div class="my-skills-container" id="skills">
@@ -190,6 +219,7 @@
             <h2>My Skills</h2>
         </div>
         <div class="wrappers">
+            
             <div class="center-line">
                 <a href="#" class="scroll-icon"><i class="fas fa-caret-up"></i></a>
             </div>
@@ -208,7 +238,9 @@
             </div>
 
             <div class="row row-2">
+               
                 <section>
+                  
                     <i class="icon fas fa-paint-brush"></i>
                     <div class="details">
                         <span class="title">CSS</span>
@@ -316,6 +348,48 @@
             </div>
         </div>
     </div> -->
+
+
+
+ <div class="cont">
+    <div class="heading">
+        <h3>Contact Me</h3>
+    </div>
+    <div class="contact-form">
+        <div class="contact-img">
+            <img src="img/bannerss.jpg" alt="">
+
+        </div>
+        <div class="contact-form-container">
+            <p>Please fill the form below to send us your message</p>
+            <form action="">
+                <div class="input">
+                    <label for="">Full Name</label> <br>
+                    <input type="text" name="" id="" required>
+                </div>
+                <div class="input">
+                    <label for="">Email (optional)</label> <br>
+                    <input type="email" name="" id="" >
+                </div>
+                <div class="input">
+                    <label for="">Phone Number</label> <br>
+                    <input type="phone" name="" id="" required>
+                </div>
+                <div class="input">
+                    <label for="" >How may i help you</label> <br>
+                    <textarea name="" id="" required></textarea>
+                </div>
+                <button>Send</button>
+            </form>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+
 
 
 
@@ -480,6 +554,38 @@
         menu.addEventListener("click", () => {
             menuLinks.classList.toggle("show")
         })
+    </script>
+
+    <script>
+        // Select all scroll elements
+const scrollElements = document.querySelectorAll(".scroll-element");
+
+// Check if an element is in the viewport
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
+// Add the 'visible' class when elements are in the viewport
+function handleScroll() {
+  scrollElements.forEach((element) => {
+    if (isInViewport(element)) {
+      element.classList.add("visible");
+    }
+  });
+}
+
+// Add event listener for scroll
+window.addEventListener("scroll", handleScroll);
+
+// Initial check for elements already in the viewport
+handleScroll();
+
     </script>
 </body>
 
