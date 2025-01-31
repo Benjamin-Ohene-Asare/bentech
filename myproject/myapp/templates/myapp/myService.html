@@ -1,53 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BenTech - IT Solutions and Web Development Expert</title>
+{% extends 'myapp/base.html' %}
+{% load static %}
 
-    <!-- css -->
-    <link rel="stylesheet" href="css/style.css">
-    <meta name="description" content="Benjamin offers IT solutions, web development, graphic design, and digital marketing services tailored for businesses and individuals. Contact for professional solutions!">
-    <meta name="description" content="Ghana web developer">
+{% block content %}
 
-<meta name="description" content="Pentecost Univeristy">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-</head>
-
-<body>
-
-      <!-- header -->
-      <header class="header">
-        <!-- first header -->
-
-        <!-- second header -->
-        <nav class="second-header padding">
-            <div class="logo">
-                <a href="index.html"> <i class="fa-sharp-duotone fa-solid fa-code"></i> BenTech
-                </a>
-
-            </div>
-            <ul class="nav-links">
-
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Me</a></li>
-                <li><a href="myService.html">Service</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="donate.html">Support us</a></li>
-                <!-- <li><a href="#blog">Blogs</a></li> -->
-            </ul>
-
-            <div class="menu">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </nav>
-    </header>
 
 
     <div class="banner-centers">
@@ -61,11 +18,16 @@
     
 
 
+   
     <div class="servic-main-container" id="service">
-       
+        <div class="heading">
+            <h2>What i do</h2>
+            <p>I offer the below services</p>
+        </div>
         <div class="service-container">
             <div class="service scroll-element from-left">
-                <img src="img/img.jpg" alt="">
+             
+                <img src="{% static 'myapp/img/img.jpg' %}" alt="">
                 <div class="sercive-text">
                     <i class="fa-sharp-duotone fa-solid fa-code"></i>
                     <h4>Web Delopment</h4>
@@ -76,7 +38,8 @@
                 </div>
             </div>
             <div class="service scroll-element from-right">
-                <img src="img/banner.jpg" alt="">
+
+                <img src="{% static 'myapp/img/banner.jpg' %}" alt="">
                 <div class="sercive-text">
                     <i class="fa-solid fa-pen-nib"></i>
                     <h4>Graphic Designer
@@ -89,7 +52,8 @@
                 </div>
             </div>
             <div class="service scroll-element from-bottom">
-                <img src="img/mee.jpg" alt="">
+              
+                <img src="{% static 'myapp/img/mee.jpg' %}" alt="">
                 <div class="sercive-text">
                     <i class="fa-solid fa-database"></i>
                     <h4>
@@ -103,16 +67,16 @@
                 </div>
             </div>
             <div class="service scroll-element from-bottom">
-                <img src="img/m.jpg" alt="">
+             
+                <img src="{% static 'myapp/img/m.jpg' %}" alt="">
                 <div class="sercive-text">
-                    <i class="fa-solid fa-database"></i>
+                    <i class="fa-solid fa-chart-line"></i>
+
                     <h4>
-                        Database Development
+                       Digital marketing
 
                     </h4>
-                    <p>I offer robust database solutions to streamline your operations. From designing database
-                        structures to managing data security and performance, I ensure your data is organized, secure,
-                        and scalable to meet future growth.</p>
+                    <p>I provide strategic digital marketing solutions, including SEO, social media marketing, and targeted advertising, to help businesses grow their online presence and reach the right audience.</p>
 
                 </div>
             </div>
@@ -121,7 +85,6 @@
         </div>
     </div>
     </div>
-
 
 
 
@@ -144,23 +107,6 @@
 
 
 
-
-
-    <footer>
-        <p> © 2024 Benjami Ohene Asare . All Rights Reserved.
-
-
-        </p>
-
-        <div class="social">
-
-            <a href="https://web.facebook.com/gh.kojosweet.5"> <i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.tiktok.com/@benjaminoheneasare?lang=en"> <i class="fa-brands fa-tiktok"></i></a>
-            <a href="https://github.com/Benjamin-Ohene-Asare"> <i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/benjamin-ohene-asare/"> <i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://wa.link/8gw4oo"> <i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-    </footer>
 
 
 
@@ -301,6 +247,7 @@ window.addEventListener("scroll", handleScroll);
 handleScroll();
 
     </script>
-</body>
 
-</html>
+
+
+{% endblock %}

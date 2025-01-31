@@ -933,8 +933,8 @@ padding: 10px;
 .brands-flex{
   margin-top: 1%;
   display: grid;
-  gap: 2rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr ;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
   align-items: center;
   justify-content: center;
 }
@@ -945,14 +945,14 @@ padding: 10px;
   background-color: var(--color);
   box-shadow:  4px 4px 10px rgba(0, 0, 0, 0.5);
   padding: 20px;
-  min-height: 30vh;
+  min-height: 20vh;
 
 }
 
 .brand img{
   width: 100%;
   max-width: 80%;
-  height: 25vh;
+  height: 20vh;
   object-fit:contain;
 }
 
