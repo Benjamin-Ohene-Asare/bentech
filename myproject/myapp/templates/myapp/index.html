@@ -1,0 +1,504 @@
+
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block content %}
+   
+ 
+
+    <!-- banner -->
+    <div class="banner-container">
+        <!-- <img src="img/banner.jpg" alt="banner image"> -->
+
+        <div class="banner-text">
+            <h1>Benjamin Ohene Asare</h1>
+            <h2>Frontend Web Developer</h2>
+            <p>I'm excited to share my creative journey with you. Explore my projects, <br> skills, and the passion I
+                bring to each design. Let's create something amazing together!</p>
+           
+        </div>
+        <div class="social">
+
+            <a href="https://web.facebook.com/gh.kojosweet.5"> <i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.tiktok.com/@benjaminoheneasare?lang=en"> <i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://github.com/Benjamin-Ohene-Asare"> <i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/benjamin-ohene-asare/"> <i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://wa.link/8gw4oo"> <i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <div class="arrow">
+            <a href="#about">
+                <i class="fa-solid fa-arrow-down"></i>
+
+            </a>
+        </div>
+    </div>
+
+
+
+    <!-- about me -->
+    <div class="about-me-container" id="about">
+        <div class="heading">
+           
+        </div>
+        <div class="about">
+            <div class="about-img">
+              
+                <img src="{% static 'myapp/img/me.jpg' %}" alt="">
+              
+               
+            </div>
+
+            <div class="about-text">
+                <h2>About Me</h2> <br>
+
+
+                <p>Hello, and welcome to my portfolio! I'm a versatile web designer, developer, and IT professional,
+                    committed to delivering engaging and effective digital experiences. With a strong background in
+                    front-end development, I specialize in creating responsive, SEO-optimized, and visually appealing
+                    websites that enhance user experience and meet business goals.</p> <br>
+
+                <p>My journey in the tech world has allowed me to work on a diverse range of projects, from e-commerce
+                    platforms and corporate websites to personal blogs and portfolios. I excel in transforming concepts
+                    into fully functional websites, using technologies like HTML, CSS, JavaScript, and modern
+                    frameworks. Whether it’s a simple landing page or a dynamic, database-driven application, I ensure
+                    every project is built with precision, scalability, and performance in mind.</p> <br>
+
+                <p>As part of my services, I also provide digital marketing, graphic design, and SEO strategies to help
+                    my clients strengthen their online presence. By blending technical skills with creative
+                    problem-solving, I deliver custom solutions tailored to each client's unique needs.</p> <br>
+
+                <p>Aside from web development, I'm also passionate about music and DJing, which influences my approach
+                    to design and creativity. I stay current with the latest trends in technology, always looking for
+                    new ways to push boundaries and bring innovation to my work.</p> <br>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="servic-main-container" id="service">
+        <div class="heading">
+            <h2>What i do</h2>
+            <p>I offer the below services</p>
+        </div>
+        <div class="service-container">
+            <div class="service scroll-element from-left">
+             
+                <img src="{% static 'myapp/img/img.jpg' %}" alt="">
+                <div class="sercive-text">
+                    <i class="fa-sharp-duotone fa-solid fa-code"></i>
+                    <h4>Web Delopment</h4>
+                    <p>I create responsive, fast-loading websites tailored to your needs, ensuring a seamless user
+                        experience across all devices. From custom designs to complex functionality, I deliver solutions
+                        that help your business stand out online.</p>
+
+                </div>
+            </div>
+            <div class="service scroll-element from-right">
+
+                <img src="{% static 'myapp/img/banner.jpg' %}" alt="">
+                <div class="sercive-text">
+                    <i class="fa-solid fa-pen-nib"></i>
+                    <h4>Graphic Designer
+                    </h4>
+
+                    <p>With a creative eye for detail, I design visually appealing graphics that communicate your brand
+                        message effectively. Whether it's logo creation, social media graphics, or marketing materials,
+                        I ensure every design enhances your brand identity.</p>
+
+                </div>
+            </div>
+            <div class="service scroll-element from-bottom">
+              
+                <img src="{% static 'myapp/img/mee.jpg' %}" alt="">
+                <div class="sercive-text">
+                    <i class="fa-solid fa-database"></i>
+                    <h4>
+                        Database Development
+
+                    </h4>
+                    <p>I offer robust database solutions to streamline your operations. From designing database
+                        structures to managing data security and performance, I ensure your data is organized, secure,
+                        and scalable to meet future growth.</p>
+
+                </div>
+            </div>
+            <div class="service scroll-element from-bottom">
+             
+                <img src="{% static 'myapp/img/m.jpg' %}" alt="">
+                <div class="sercive-text">
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <h4>
+                       Digital marketing
+
+                    </h4>
+                    <p>I provide strategic digital marketing solutions, including SEO, social media marketing, and targeted advertising, to help businesses grow their online presence and reach the right audience.</p>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+
+
+
+    <!-- portoflio -->
+    <div class="portfolio-container scroll-element from-bottom" id="port">
+        <div class="heading">
+            <h2>Portfolio</h2>
+            <p>Below are the project i have worked on</p>
+        </div>
+
+        <div class="portfolio">
+            <a href="https://tlghana.com/">
+                <div class="port">
+                  
+                    <img src="{% static 'myapp/img/Macbook-Air-tlghana.com.png' %}" alt="" ">
+                    <img src="{% static 'myapp/img/iPhone-12-PRO-MAX-tlghana.com.png' %}" alt="" class="small-imgs">
+                    
+                   
+                </div>
+
+            </a>
+            <a href="error.html">
+                <div class="port">
+                    <img src="{% static 'myapp/img/big.png' %}" alt="" >
+                    <img src="{% static 'myapp/img/small.png' %}" alt="" class="small-imgs">
+
+                   
+                   
+                </div>
+
+            </a>
+            <a href="error.html">
+                <div class="port">
+                 
+                    <img src="{% static 'myapp/img/big2 (1).png' %}" alt="" >
+                    <img src="{% static 'myapp/img/small2.png' %}" alt="" class="small-imgs">
+                   
+                </div>
+
+            </a>
+            <a href="error.html">
+                <div class="port">
+                    
+                    <img src="{% static 'myapp/img/big3.png' %}" alt="" >
+                    <img src="{% static 'myapp/img/small3.png' %}" alt="" class="small-imgs">
+                    
+                   
+                </div>
+
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="banner-center scroll-element from-bottom">
+        <h2>I love creating and <br> solving problems</h2> <br>
+       
+        <p>There's a unique satisfaction in building solutions from scratch and tackling challenges head-on. <br> Every problem presents an opportunity to innovate, refine my skills, and make a meaningful impact. <br> Whether it’s coding a complex application, designing intuitive interfaces, or brainstorming ideas, <br> I thrive on the journey of turning ideas into reality and overcoming obstacles along the way </p>
+        <a href="" class="book-me"> Send me a message</a>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <!-- my skilles -->
+    <div class="my-skills-container" id="skills">
+        <div class="heading">
+            <h2>My Skills</h2>
+            <p>My education and skills</p>
+        </div>
+        <div class="wrappers">
+            
+            <div class="center-line">
+                <a href="#" class="scroll-icon"><i class="fas fa-caret-up"></i></a>
+            </div>
+
+            <div class="row row-1">
+                <section>
+                    <i class="icon fas fa-school"></i>
+                    <div class="details">
+                        <span class="title">Daboase Senior High School</span>
+                        <span>2016 - 2019</span>
+                    </div>
+                    <p>Studied General Art </p>
+                </section>
+
+            </div>
+
+            <div class="row row-2">
+               
+                <section>
+                    <i class="icon fas fa-code"></i>
+                    <div class="details">
+                        <span class="title">HTML & CSS</span>
+                        <span>Since 2022</span>
+                    </div>
+                    <p>Proficient in creating well-structured HTML and responsive CSS designs. Skilled in using modern CSS features like Flexbox, Grid, and media queries to build adaptive, user-friendly layouts.</p>
+                    <div class="bottom"></div>
+                </section>
+                
+            </div>
+
+            <div class="row row-1">
+                <section>
+                    <i class="icon fas fa-university"></i>
+                    <div class="details">
+                        <span class="title">Pentecost University</span>
+                        <span>2022 - 2024</span>
+                    </div>
+                    <p>Diploma in Business Management and Computing</p>
+                </section>
+                
+            </div>
+
+            <div class="row row-2">
+                <section>
+                    <i class="icon fas fa-image"></i>
+                    <div class="details">
+                        <span class="title">Photoshop</span>
+                        <span>Since 2022</span>
+                    </div>
+                    <p>Skilled in Adobe Photoshop for creating and editing high-quality visuals, graphics, and layouts for web, print, and branding projects.</p>
+                    <div class="bottom"></div>
+                </section>
+                
+            </div>
+
+            <div class="row row-1">
+                <!-- <section>
+                    <i class="icon fas fa-image"></i>
+                    <div class="details">
+                        <span class="title">Photoshop</span>
+                        <span>5th Jan 2022</span>
+                    </div>
+                    <p>Skilled in Adobe Photoshop for creating and editing high-quality visuals, graphics, and layouts
+                        for web and print design projects.</p>
+                    <div class="bottom"></div>
+                </section> -->
+
+                <section>
+                    <i class="icon fas fa-university"></i>
+                    <div class="details">
+                        <span class="title">Pentecost University</span>
+                        <span>Current</span>
+                    </div>
+                    <p>BSc in Information Technology</p>
+                </section>
+                
+            </div>
+
+            <div class="row row-2">
+                <section>
+                    <i class="icon fas fa-database"></i>
+                    <div class="details">
+                        <span class="title">SQL</span>
+                        <span>6th Jan 2022</span>
+                    </div>
+                    <p>Experienced in SQL for designing, querying, and managing relational databases, ensuring data
+                        integrity, performance optimization, and security.</p>
+                    <div class="bottom"></div>
+                </section>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- blog post -->
+    <!-- <div class="blog-post-container" id="blog">
+        <div class="heading">
+            <h2>Blog</h2>
+        </div>
+        <div class="blog-container">
+            <div class="blog">
+                <img src="img/banner.jpg" alt="">
+                <div class="blog-text">
+                    <h4>Web development</h4>
+                    <p>I'm excited to share my creative journey with you. Explore my projects, </p>
+                </div>
+                <div class="read-more">
+                    <a href="">Read More</a>
+                </div>
+            </div>
+            <div class="blog">
+                <img src="img/banner.jpg" alt="">
+                <div class="blog-text">
+                    <h4>Web development</h4>
+                    <p>I'm excited to share my creative journey with you. Explore my projects, </p>
+                </div>
+                <div class="read-more">
+                    <a href="">Read More</a>
+                </div>
+            </div>
+            <div class="blog">
+                <img src="img/banner.jpg" alt="">
+                <div class="blog-text">
+                    <h4>Web development</h4>
+                    <p>I'm excited to share my creative journey with you. Explore my projects, </p>
+                </div>
+                <div class="read-more">
+                    <a href="">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+
+
+    <div class="brands-container">
+        <div class="heading">
+            <h2>BRANDS THAT TRUSTS ME </h2>
+            <p> Over the few years, Benjamin has had the privilege to
+                work for both businesses and student
+                </p>
+
+        </div>
+
+            <div class="brands-flex">
+                <div class="brand">
+                    <img src="img/logo.jpg" alt="">
+                    
+                </div>
+                <div class="brand">
+                    <img src="img/company-logo.png" alt="">
+                    
+                </div>
+                <div class="brand">
+                    <img src="img/voteafric-logo.png" alt="">
+                    
+                </div>
+
+            </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="cont">
+    <div class="heading">
+        <h3>Contact Me</h3>
+    </div>
+    <div class="contact-form">
+        <div class="contact-img">
+            <img src="img/bannerss.jpg" alt="">
+
+        </div>
+        <div class="contact-form-container">
+            <p>Please fill the form below to send us your message</p>
+            <form action="">
+                <div class="input">
+                    <label for="">Full Name</label> <br>
+                    <input type="text" name="" id="" required>
+                </div>
+                <div class="input">
+                    <label for="">Email (optional)</label> <br>
+                    <input type="email" name="" id="" >
+                </div>
+                <div class="input">
+                    <label for="">Phone Number</label> <br>
+                    <input type="phone" name="" id="" required>
+                </div>
+                <div class="input">
+                    <label for="" >How may i help you</label> <br>
+                    <textarea name="" id="" required></textarea>
+                </div>
+                <button>Send</button>
+            </form>
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- gallery -->
+
+    <div class="gallery-container">
+        <div class="heading">
+            <h2>Gallery</h2>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="wrapper">
+            <i id="left" class="fa-solid fa-angle-left"></i>
+            <div class="carousel">
+                <img src="img/mee.jpg" alt="img" draggable="false">
+
+                <img src="img/mee (1).jpg" alt="img" draggable="false">
+                <img src="img/mee (2).jpg" alt="img" draggable="false">
+                <img src="img/mee (3).jpg" alt="img" draggable="false">
+                <img src="img/mee (4).jpg" alt="img" draggable="false">
+                <img src="img/mee (5).jpg" alt="img" draggable="false">
+                <img src="img/mee.jpg" alt="img" draggable="false">
+                <img src="img/mees (1).jpg" alt="img" draggable="false">
+                <img src="img/mees (2).jpg" alt="img" draggable="false">
+
+            </div>
+            <i id="right" class="fa-solid fa-angle-right"></i>
+        </div>
+
+    </div>
+
+
+
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
