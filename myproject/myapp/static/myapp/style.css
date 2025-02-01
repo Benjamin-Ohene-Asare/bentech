@@ -482,7 +482,7 @@ padding: 5% 7%;
 border: solid 1px ;
 padding: 10px 30px;
 }
-
+/* 
 .gallery-container{
     padding-bottom: 5%;
 }
@@ -545,7 +545,7 @@ padding: 10px 30px;
   }
   .carousel img:first-child{
     margin-left: 0px;
-  }
+  } */
   @media screen and (max-width: 900px) {
     .carousel img{
       width: calc(100% / 2);
