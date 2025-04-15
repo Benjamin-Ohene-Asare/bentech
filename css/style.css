@@ -1,6 +1,7 @@
 /* colors */
 :root{
-    --main-color: #190e4e;
+    --main-color: 
+    #020202;
     --color:#fff;
     --pink:#ff3b3b;
 }
@@ -44,7 +45,7 @@ header{
 }
 
 body{
-   
+   background-color: var(--main-color);
 }
 
 /* first header */
@@ -55,6 +56,7 @@ body{
     background-color: var(--main-color);
     min-height: 7vh;
     align-items: center;
+    
     
 }
 .f-col{
@@ -229,8 +231,10 @@ line-height: 30px;
 
 /* about-me-containe */
 .about-me-container{
-    padding: 1% 10%;
-
+    padding: 5% 10%;
+  
+    background-color:  
+    #050a0e;
 }
 
 .about-img{
@@ -260,13 +264,14 @@ line-height: 30px;
 .heading {
   text-align: center;
   padding: 2% 0;
+
 }
 
 .heading h2 {
   font-size: 2.3rem;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #190e4e;
+  color: var(--color);
 }
 
 .heading p {
@@ -282,8 +287,8 @@ line-height: 30px;
     display: flex;
     align-items: center;
     gap: 1rem;
- 
-    color: #000000;
+    color: var(--color);
+
     
    
 }
@@ -322,11 +327,11 @@ line-height: 30px;
 /* .servic-main-container */
 
 .servic-main-container{
-padding: 5% 7%;
+padding: 6% 7%;
 }
 .service-container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 2rem;
 }
 .service{
@@ -334,27 +339,10 @@ padding: 5% 7%;
     max-width: 100%;
  
    position: relative;
-   
+   text-align: center;
     border-radius: 10px;
 }
-.service img{
-    width: 100%;
- height: 50vh;
-  object-fit: cover;
-}
-.sercive-text{
-    padding: 10px;
 
-    position: absolute;
-    top: 0;
-    background-color:  rgba(25, 14, 78, 0.7);
-    width: 100%;
-    min-height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
 .sercive-text h4{
     color: var(--color);
     font-size: 1.5rem;
@@ -375,7 +363,9 @@ padding: 5% 7%;
 
 /* portfolio-container */
 .portfolio-container{
-    padding: 4% 6%;
+    padding: 7% 6%;
+    background-color:  
+    #050a0e;
 
 }
 
@@ -482,7 +472,7 @@ padding: 5% 7%;
 border: solid 1px ;
 padding: 10px 30px;
 }
-
+/* 
 .gallery-container{
     padding-bottom: 5%;
 }
@@ -545,7 +535,7 @@ padding: 10px 30px;
   }
   .carousel img:first-child{
     margin-left: 0px;
-  }
+  } */
   @media screen and (max-width: 900px) {
     .carousel img{
       width: calc(100% / 2);
@@ -589,7 +579,8 @@ footer{
 position: relative;
     width: 100%;
     margin-bottom: 2%;
-   
+    background-color:  
+    #050a0e;
 }
 
   .wrappers{
@@ -597,7 +588,7 @@ position: relative;
     margin: 0 7%;
     padding: 10px 20px;
     position: relative;
-    background-color: #190e4e;
+ 
 
   }
   .wrappers .center-line{
@@ -895,10 +886,11 @@ form {
 }
 .input input{
 width: 100%;
-outline: none;
+border: solid 1px #555;
 min-height: 7vh;
 padding: 10px;
 margin: 1% 0;
+background-color: transparent;
 }
 .input textarea{
 width: 100%;
@@ -933,8 +925,8 @@ padding: 10px;
 .brands-flex{
   margin-top: 1%;
   display: grid;
-  gap: 2rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr ;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr ;
   align-items: center;
   justify-content: center;
 }
@@ -945,14 +937,14 @@ padding: 10px;
   background-color: var(--color);
   box-shadow:  4px 4px 10px rgba(0, 0, 0, 0.5);
   padding: 20px;
-  min-height: 30vh;
+  min-height: 20vh;
 
 }
 
 .brand img{
   width: 100%;
   max-width: 80%;
-  height: 25vh;
+  height: 20vh;
   object-fit:contain;
 }
 
