@@ -8,10 +8,11 @@
 
     <!-- css -->
     <link rel="stylesheet" href="css/style.css">
-    <meta name="description" content="Benjamin offers IT solutions, web development, graphic design, and digital marketing services tailored for businesses and individuals. Contact for professional solutions!">
+    <meta name="description"
+        content="Benjamin offers IT solutions, web development, graphic design, and digital marketing services tailored for businesses and individuals. Contact for professional solutions!">
     <meta name="description" content="Ghana web developer">
 
-<meta name="description" content="Pentecost Univeristy">
+    <meta name="description" content="Pentecost Univeristy">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -21,8 +22,8 @@
 
 <body>
 
-      <!-- header -->
-      <header class="header">
+    <!-- header -->
+    <header class="header">
         <!-- first header -->
 
         <!-- second header -->
@@ -39,7 +40,7 @@
                 <li><a href="myService.html">Service</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="donate.html">Support us</a></li>
+                 <!-- <li><a href="donate.html">Support us</a></li> -->
                 <!-- <li><a href="#blog">Blogs</a></li> -->
             </ul>
 
@@ -52,20 +53,24 @@
 
     <div class="banner-centers">
         <h2>My Service <br>
-       
-        
+
+
     </div>
 
 
 
-    
+
+
 
 
     <div class="servic-main-container" id="service">
-       
+        <div class="heading">
+            <h2>What i do</h2>
+            <p>I offer the below services</p>
+        </div>
         <div class="service-container">
             <div class="service scroll-element from-left">
-                <img src="img/img.jpg" alt="">
+
                 <div class="sercive-text">
                     <i class="fa-sharp-duotone fa-solid fa-code"></i>
                     <h4>Web Delopment</h4>
@@ -76,7 +81,8 @@
                 </div>
             </div>
             <div class="service scroll-element from-right">
-                <img src="img/banner.jpg" alt="">
+
+
                 <div class="sercive-text">
                     <i class="fa-solid fa-pen-nib"></i>
                     <h4>Graphic Designer
@@ -89,7 +95,8 @@
                 </div>
             </div>
             <div class="service scroll-element from-bottom">
-                <img src="img/mee.jpg" alt="">
+
+
                 <div class="sercive-text">
                     <i class="fa-solid fa-database"></i>
                     <h4>
@@ -103,16 +110,18 @@
                 </div>
             </div>
             <div class="service scroll-element from-bottom">
-                <img src="img/m.jpg" alt="">
+
+
                 <div class="sercive-text">
-                    <i class="fa-solid fa-database"></i>
+                    <i class="fa-solid fa-chart-line"></i>
+
                     <h4>
-                        Database Development
+                        Digital marketing
 
                     </h4>
-                    <p>I offer robust database solutions to streamline your operations. From designing database
-                        structures to managing data security and performance, I ensure your data is organized, secure,
-                        and scalable to meet future growth.</p>
+                    <p>I provide strategic digital marketing solutions, including SEO, social media marketing, and
+                        targeted advertising, to help businesses grow their online presence and reach the right
+                        audience.</p>
 
                 </div>
             </div>
@@ -132,7 +141,7 @@
 
 
 
- 
+
 
 
 
@@ -155,10 +164,15 @@
         <div class="social">
 
             <a href="https://web.facebook.com/gh.kojosweet.5"> <i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.tiktok.com/@benjaminoheneasare?lang=en"> <i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.tiktok.com/@techjamin_12?_t=ZM-8yz4sXDKHoM&_r=1"> <i
+                    class="fa-brands fa-tiktok"></i></a>
             <a href="https://github.com/Benjamin-Ohene-Asare"> <i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/benjamin-ohene-asare/"> <i class="fa-brands fa-linkedin"></i></a>
             <a href="https://wa.link/8gw4oo"> <i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://wa.link/8gw4oo"> <i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://pin.it/5SqKvSihF" target="_blank">
+                <i class="fa-brands fa-pinterest"></i>
+            </a>
         </div>
     </footer>
 
@@ -272,33 +286,33 @@
 
     <script>
         // Select all scroll elements
-const scrollElements = document.querySelectorAll(".scroll-element");
+        const scrollElements = document.querySelectorAll(".scroll-element");
 
-// Check if an element is in the viewport
-function isInViewport(element) {
-  const rect = element.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
-}
+        // Check if an element is in the viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
 
-// Add the 'visible' class when elements are in the viewport
-function handleScroll() {
-  scrollElements.forEach((element) => {
-    if (isInViewport(element)) {
-      element.classList.add("visible");
-    }
-  });
-}
+        // Add the 'visible' class when elements are in the viewport
+        function handleScroll() {
+            scrollElements.forEach((element) => {
+                if (isInViewport(element)) {
+                    element.classList.add("visible");
+                }
+            });
+        }
 
-// Add event listener for scroll
-window.addEventListener("scroll", handleScroll);
+        // Add event listener for scroll
+        window.addEventListener("scroll", handleScroll);
 
-// Initial check for elements already in the viewport
-handleScroll();
+        // Initial check for elements already in the viewport
+        handleScroll();
 
     </script>
 </body>
