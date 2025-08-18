@@ -39,7 +39,7 @@
                 <li><a href="myService.html">Service</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="donate.html">Support us</a></li>
+                  <!-- <li><a href="donate.html">Support us</a></li> -->
                 <!-- <li><a href="#blog">Blogs</a></li> -->
             </ul>
 
@@ -58,17 +58,87 @@
 
 
 
-    
+    <div class="banner-center scroll-element from-bottom">
+        <div class="heading">
+            <h2>I BRING YOUR BRAND TO LIFE WITH DESIGN</h2>
+            <p>Freelance Graphic Designer | Flyers • Social Media Designs</p>
+        </div>
 
+        <div class="graphic-work">
+            <div class="graphic">
+                <img src="img/CHURCH DLYER copy.png" alt="">
+            </div>
+            <div class="graphic">
+                <img src="img/FOOD NEW copy.png" alt="">
+            </div>
+            <div class="graphic">
+                <img src="img/Hustle.png" alt="">
+            </div>
+            <div class="graphic">
+                <img src="img/TRIP copy.png" alt="">
+            </div>
+            <div class="graphic">
+                <img src="img/SLEEP 2.png" alt="">
+            </div>
+            <div class="graphic">
+                <img src="img/pep. copy.png" alt="">
+            </div>
+            <div class="graphic">
+                <img src="img/JUICE copy.png" alt="">
+            </div>
+            <div class="graphic">
+                <img src="img/make up copy.png" alt="">
+            </div>
+            <div class="graphic">
+                <img src="img/praise copy.png" alt="">
+            </div>
+            <div class="graphic">
+                <img src="img/fashions.png" alt="">
+            </div>
+            <div class="graphic">
+                <img src="img/A NIGHT WITH JESUS copy.png" alt="">
+            </div>
+            <div class="graphic">
+                <img src="img/food 3 copy.jpg" alt="">
+            </div>
+           
+        </div>
+
+
+<!-- Image Popup Modal -->
+<div id="popup" class="popup hidden">
+  <span id="closeBtn">&times;</span>
+  <img id="popupImg" src="" alt="">
+  <button id="prevBtn">&#10094;</button>
+  <button id="nextBtn">&#10095;</button>
+</div>
+
+
+<a href="https://pin.it/5SqKvSihF" class="seehere">
+    <button>See More here</button>
+</a>
+
+        <!-- <h2>I love creating and <br> solving problems</h2> <br>
+       
+        <p>There's a unique satisfaction in building solutions from scratch and tackling challenges head-on. <br> Every problem presents an opportunity to innovate, refine my skills, and make a meaningful impact. <br> Whether it’s coding a complex application, designing intuitive interfaces, or brainstorming ideas, <br> I thrive on the journey of turning ideas into reality and overcoming obstacles along the way </p>
+        <a href="" class="book-me"> Send me a message</a> -->
+    </div>
+
+
+
+
+    <!-- portoflio -->
     <div class="portfolio-container scroll-element from-bottom" id="port">
-      
+        <div class="heading">
+            <h2>CLEAN CODE, CREATIVE DESIGN, REAL RESULTS</h2>
+            <p>I BUILD MODERN AND RESPONSIVE WEBSITES</p>
+        </div>
 
-      
         <div class="portfolio">
             <a href="https://tlghana.com/">
                 <div class="port">
                     <img class="big" src="img/Macbook-Air-tlghana.com.png" alt="">
-                    <img src="img/iPhone-12-PRO-MAX-tlghana.com.png" alt="" class="small-imgs">
+                  
                    
                 </div>
 
@@ -76,7 +146,7 @@
             <a href="error.html">
                 <div class="port">
                     <img class="big" src="img/big.png" alt="">
-                    <img src="img/small.png" alt="" class="small-imgs">
+                   
                    
                 </div>
 
@@ -84,7 +154,7 @@
             <a href="error.html">
                 <div class="port">
                     <img class="big" src="img/big2 (1).png" alt="">
-                    <img src="img/small2.png" alt="" class="small-imgs">
+                   
                    
                 </div>
 
@@ -92,14 +162,13 @@
             <a href="error.html">
                 <div class="port">
                     <img class="big" src="img/big3.png" alt="">
-                    <img src="img/small3.png" alt="" class="small-imgs">
+                 
                    
                 </div>
 
             </a>
         </div>
     </div>
-
 
 
 
@@ -127,10 +196,15 @@
         <div class="social">
 
             <a href="https://web.facebook.com/gh.kojosweet.5"> <i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.tiktok.com/@benjaminoheneasare?lang=en"> <i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.tiktok.com/@techjamin_12?_t=ZM-8yz4sXDKHoM&_r=1"> <i
+                    class="fa-brands fa-tiktok"></i></a>
             <a href="https://github.com/Benjamin-Ohene-Asare"> <i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/benjamin-ohene-asare/"> <i class="fa-brands fa-linkedin"></i></a>
             <a href="https://wa.link/8gw4oo"> <i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://wa.link/8gw4oo"> <i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://pin.it/5SqKvSihF" target="_blank">
+                <i class="fa-brands fa-pinterest"></i>
+            </a>
         </div>
     </footer>
 
@@ -273,6 +347,55 @@ window.addEventListener("scroll", handleScroll);
 handleScroll();
 
     </script>
+
+
+<script>
+  const graphics = document.querySelectorAll('.graphic img');
+  const popup = document.getElementById('popup');
+  const popupImg = document.getElementById('popupImg');
+  const closeBtn = document.getElementById('closeBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  let currentIndex = 0;
+
+  graphics.forEach((img, index) => {
+    img.addEventListener('click', () => {
+      popup.classList.remove('hidden');
+      popupImg.src = img.src;
+      currentIndex = index;
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    popup.classList.add('hidden');
+  });
+
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % graphics.length;
+    popupImg.src = graphics[currentIndex].src;
+  });
+
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + graphics.length) % graphics.length;
+    popupImg.src = graphics[currentIndex].src;
+  });
+
+  // Optional: Close popup when clicking outside image
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) popup.classList.add('hidden');
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
