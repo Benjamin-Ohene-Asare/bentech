@@ -23,6 +23,406 @@
 
 </head>
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --deep:#0a0520;
+  --blue:#1a1060;
+  --mid-blue:#2d1b8e;
+  --violet:#5b2dbe;
+  --magenta:#c026d3;
+  --pink:#e879f9;
+  --hot:#f0abfc;
+  --cyan:#22d3ee;
+  --glow-blue:rgba(90,60,220,.55);
+  --glow-mag:rgba(192,38,211,.45);
+  --panel-bg:rgba(10,5,32,.82);
+  --panel-border:rgba(147,80,255,.25);
+  --text-dim:rgba(200,180,255,.55);
+  --text-bright:rgba(230,210,255,.9);
+}
+
+.hero-wrap{
+  min-height:580px;
+  background:var(--deep);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  font-family:'Syne',sans-serif;
+}
+
+/* ── BACKGROUND ── */
+.bg-layer{position:absolute;inset:0;z-index:0;pointer-events:none;}
+.bg-radial-blue{
+  position:absolute;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(45,27,142,.7) 0%,transparent 70%);
+  top:-150px;left:-100px;
+}
+.bg-radial-mag{
+  position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(192,38,211,.45) 0%,transparent 65%);
+  bottom:-120px;right:-80px;
+}
+.bg-ring{
+  position:absolute;
+  border-radius:50%;
+  border:1.5px solid;
+  pointer-events:none;
+}
+.ring-1{width:420px;height:420px;border-color:rgba(147,80,255,.15);top:50%;left:50%;transform:translate(-50%,-50%);}
+.ring-2{width:300px;height:300px;border-color:rgba(192,38,211,.12);top:50%;left:50%;transform:translate(-50%,-50%);}
+.ring-3{width:560px;height:560px;border-color:rgba(90,60,220,.1);top:50%;left:50%;transform:translate(-50%,-50%);}
+
+/* ── PS TOP MENU BAR ── */
+.ps-topbar{
+  position:relative;z-index:10;
+  background:rgba(8,4,28,.95);
+  border-bottom:1px solid var(--panel-border);
+  height:26px;
+  display:flex;align-items:center;gap:4px;
+  padding:0 12px;flex-shrink:0;
+  backdrop-filter:blur(8px);
+}
+.ps-menu-item{
+  font-family:'Space Mono',monospace;font-size:9px;
+  color:var(--text-dim);padding:2px 7px;border-radius:2px;cursor:pointer;
+}
+.ps-menu-item:hover{background:rgba(147,80,255,.2);color:var(--pink);}
+.ps-topbar-right{margin-left:auto;display:flex;gap:7px;align-items:center;}
+.ps-win-btn{width:10px;height:10px;border-radius:50%;cursor:pointer;}
+
+/* ── PS OPTIONS BAR ── */
+.ps-optbar{
+  position:relative;z-index:10;
+  background:rgba(14,7,40,.9);
+  border-bottom:1px solid var(--panel-border);
+  height:28px;
+  display:flex;align-items:center;gap:10px;
+  padding:0 12px;flex-shrink:0;
+  backdrop-filter:blur(6px);
+  overflow:hidden;
+}
+.opt-label{font-family:'Space Mono',monospace;font-size:9px;color:var(--text-dim);}
+.opt-val{
+  font-family:'Space Mono',monospace;font-size:9px;
+  color:var(--cyan);background:rgba(34,211,238,.08);
+  padding:1px 7px;border-radius:2px;border:1px solid rgba(34,211,238,.2);
+}
+.opt-sep{width:1px;height:14px;background:var(--panel-border);}
+
+/* ── STAGE ── */
+.ps-stage{
+  flex:1;display:flex;position:relative;z-index:1;min-height:0;
+}
+
+/* ── LEFT TOOLBAR ── */
+.ps-toolbar-left{
+  width:46px;flex-shrink:0;
+  background:rgba(8,4,28,.95);
+  border-right:1px solid var(--panel-border);
+  display:flex;flex-direction:column;align-items:center;
+  padding:8px 0;gap:2px;z-index:10;
+}
+.tool-btn{
+  width:34px;height:34px;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:5px;color:var(--text-dim);font-size:15px;cursor:pointer;
+  transition:all .15s;position:relative;
+}
+.tool-btn:hover{background:rgba(147,80,255,.2);color:var(--pink);}
+.tool-btn.is-active{
+  background:linear-gradient(135deg,rgba(91,45,190,.6),rgba(192,38,211,.4));
+  color:#fff;
+  box-shadow:0 0 10px rgba(192,38,211,.4);
+}
+.tool-btn.is-active::after{
+  content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);
+  width:2px;height:55%;
+  background:linear-gradient(180deg,var(--cyan),var(--pink));
+  border-radius:1px;
+}
+.tool-sep{width:24px;height:1px;background:var(--panel-border);margin:4px 0;}
+.fg-bg-wrap{position:relative;width:30px;height:30px;margin-top:6px;}
+.fg-sq{position:absolute;top:0;left:0;width:20px;height:20px;background:var(--magenta);border:2px solid rgba(255,255,255,.3);border-radius:2px;cursor:pointer;box-shadow:0 0 8px rgba(192,38,211,.5);}
+.bg-sq{position:absolute;bottom:0;right:0;width:20px;height:20px;background:var(--mid-blue);border:2px solid rgba(255,255,255,.2);border-radius:2px;cursor:pointer;}
+
+/* ── CANVAS AREA ── */
+.ps-canvas-area{
+  flex:1;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  padding:28px 16px 20px;overflow:hidden;
+}
+
+/* rulers */
+.ruler-h{position:absolute;top:0;left:0;right:0;height:16px;background:rgba(8,4,28,.95);z-index:5;overflow:hidden;border-bottom:1px solid var(--panel-border);}
+.ruler-v{position:absolute;top:16px;left:0;bottom:0;width:16px;background:rgba(8,4,28,.95);z-index:5;overflow:hidden;border-right:1px solid var(--panel-border);}
+.rtick{position:absolute;background:rgba(147,80,255,.4);}
+.ruler-h .rtick{bottom:0;width:1px;}
+.ruler-v .rtick{right:0;height:1px;}
+.ruler-num{position:absolute;font-family:'Space Mono',monospace;font-size:7px;color:rgba(147,80,255,.5);}
+.ruler-h .ruler-num{bottom:2px;}
+
+/* ── DOC ── */
+.ps-doc{
+  position:relative;
+  background:linear-gradient(145deg,#0e0630 0%,#1a0a55 40%,#2d0a6e 70%,#1a0540 100%);
+  box-shadow:0 0 60px rgba(192,38,211,.3),0 0 120px rgba(90,60,220,.2),0 4px 30px rgba(0,0,0,.6);
+  border:1px solid rgba(147,80,255,.2);
+  border-radius:4px;
+  width:100%;max-width:540px;
+  min-height:380px;
+  padding:36px 28px 30px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;
+  overflow:hidden;
+  margin-left:16px;margin-top:16px;
+}
+
+/* doc deco */
+.doc-glow-ring{
+  position:absolute;
+  border-radius:50%;pointer-events:none;
+}
+.dgr-1{width:340px;height:340px;border:1.5px solid rgba(192,38,211,.18);top:50%;left:50%;transform:translate(-50%,-50%);}
+.dgr-2{width:220px;height:220px;border:1px solid rgba(90,60,220,.2);top:50%;left:50%;transform:translate(-50%,-50%);}
+.doc-glow-spot{
+  position:absolute;border-radius:50%;pointer-events:none;
+}
+.dgs-1{width:250px;height:250px;background:radial-gradient(circle,rgba(192,38,211,.25),transparent 70%);top:-60px;right:-40px;}
+.dgs-2{width:200px;height:200px;background:radial-gradient(circle,rgba(90,60,220,.3),transparent 70%);bottom:-60px;left:-40px;}
+.dgs-3{width:180px;height:180px;background:radial-gradient(circle,rgba(34,211,238,.15),transparent 70%);top:40%;left:30%;}
+
+/* top color stripe */
+.doc-stripe{
+  position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--cyan),var(--violet),var(--magenta),var(--pink),var(--cyan));
+  background-size:200% 100%;
+  animation:stripeMove 4s linear infinite;
+}
+@keyframes stripeMove{0%{background-position:0% 0;}100%{background-position:200% 0;}}
+
+/* marching ants */
+.doc-selection{
+  position:absolute;inset:12px;
+  border:1.5px dashed rgba(34,211,238,.5);
+  border-radius:3px;pointer-events:none;
+  animation:ants 1.4s linear infinite;
+}
+@keyframes ants{0%{border-color:rgba(34,211,238,.6);}50%{border-color:rgba(232,121,249,.6);}100%{border-color:rgba(34,211,238,.6);}}
+
+/* ── FLOATING ADOBE CUBES ── */
+.cube-wrap{
+  position:absolute;pointer-events:none;z-index:3;
+}
+.cube{
+  width:42px;height:42px;border-radius:10px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:'Space Mono',monospace;font-weight:700;font-size:13px;line-height:1;
+  box-shadow:0 4px 20px rgba(0,0,0,.4),0 0 16px var(--glow);
+  animation:cubFloat 4s ease-in-out infinite;
+  border:1px solid rgba(255,255,255,.15);
+}
+.cw-ps{--glow:rgba(49,168,255,.6);background:linear-gradient(135deg,#001e36,#003a6b);color:#31a8ff;top:18%;left:6%;animation-delay:0s;}
+.cw-ai{--glow:rgba(255,154,0,.5);background:linear-gradient(135deg,#300f00,#5a1a00);color:#ff9a00;bottom:28%;left:5%;animation-delay:.8s;}
+.cw-ae{--glow:rgba(105,105,255,.5);background:linear-gradient(135deg,#00005e,#0c0c9e);color:#9999ff;top:16%;right:8%;animation-delay:1.6s;}
+.cw-pr{--glow:rgba(234,107,222,.5);background:linear-gradient(135deg,#1a0030,#3d0070);color:#ea6bde;bottom:32%;right:6%;animation-delay:.4s;}
+.cw-id{--glow:rgba(255,55,55,.4);background:linear-gradient(135deg,#300010,#6b0025);color:#ff3737;bottom:14%;right:22%;animation-delay:2s;}
+@keyframes cubFloat{
+  0%,100%{transform:translateY(0) rotate(-3deg);}
+  50%{transform:translateY(-10px) rotate(3deg);}
+}
+.cube-label{font-size:11px;opacity:.7;margin-top:1px;}
+
+/* ── GLASSMORPHISM PILL ── */
+.glass-pill{
+  position:absolute;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(12px);
+  border-radius:16px;
+  padding:8px 16px;
+  font-family:'Space Mono',monospace;font-size:11px;font-weight:700;
+  color:#fff;pointer-events:none;z-index:4;
+  box-shadow:0 4px 20px rgba(0,0,0,.3);
+}
+.gp-hello{top:22%;left:8%;animation:pillFloat 5s ease-in-out infinite;}
+.gp-october{bottom:24%;right:8%;animation:pillFloat 5s ease-in-out infinite 1.5s;font-size:14px;line-height:1.2;text-align:center;}
+@keyframes pillFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+
+/* ── HERO CONTENT ── */
+.hero-eyebrow{
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;
+  position:relative;z-index:5;
+}
+.eyebrow-chip{
+  font-family:'Space Mono',monospace;font-size:9px;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;
+  padding:4px 12px;border-radius:20px;
+  display:flex;align-items:center;gap:5px;
+}
+.chip-dev{
+  background:rgba(34,211,238,.12);color:var(--cyan);
+  border:1px solid rgba(34,211,238,.3);
+  box-shadow:0 0 12px rgba(34,211,238,.15);
+}
+.chip-des{
+  background:rgba(232,121,249,.12);color:var(--pink);
+  border:1px solid rgba(232,121,249,.3);
+  box-shadow:0 0 12px rgba(232,121,249,.15);
+}
+.eyebrow-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.3);}
+
+.hero-title{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:clamp(2.2rem,5.5vw,3.8rem);
+  line-height:1;letter-spacing:-2px;
+  text-align:center;position:relative;z-index:5;
+}
+.ht-w1{color:#fff;}
+.ht-w2{
+  display:inline-block;position:relative;
+  background:linear-gradient(90deg,var(--cyan),var(--pink));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.ht-w2::after{
+  content:'';position:absolute;
+  bottom:2px;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--cyan),var(--pink));
+  border-radius:2px;
+}
+.ht-w3{
+  -webkit-text-stroke:2px rgba(232,121,249,.7);
+  color:transparent;
+  text-shadow:0 0 30px rgba(232,121,249,.3);
+}
+
+/* color bar */
+.hero-colorbar{
+  display:flex;border-radius:6px;overflow:hidden;
+  height:6px;width:220px;position:relative;z-index:5;
+  box-shadow:0 0 12px rgba(192,38,211,.3);
+}
+.hcb-s{flex:1;}
+
+/* sticker tags */
+.hero-stickers{
+  display:flex;align-items:center;justify-content:center;
+  gap:7px;flex-wrap:wrap;position:relative;z-index:5;
+}
+.sticker-tag{
+  font-family:'Space Mono',monospace;font-size:8.5px;font-weight:700;
+  padding:4px 10px;border-radius:20px;
+  text-transform:uppercase;letter-spacing:.07em;
+  border:1px solid currentColor;
+}
+.st-html{color:#ff6b6b;background:rgba(255,107,107,.08);}
+.st-css{color:#60a5fa;background:rgba(96,165,250,.08);}
+.st-ps{color:#31a8ff;background:rgba(49,168,255,.1);}
+.st-ai{color:#ff9a00;background:rgba(255,154,0,.08);}
+.st-fig{color:#e879f9;background:rgba(232,121,249,.08);}
+
+/* ── SOCIAL ── */
+.hero-social{
+  display:flex;gap:7px;justify-content:center;flex-wrap:wrap;
+  position:relative;z-index:5;
+}
+.hero-social a{
+  width:34px;height:34px;border-radius:8px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(147,80,255,.3);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-dim);font-size:13px;text-decoration:none;
+  transition:all .18s;
+}
+.hero-social a:hover{
+  background:rgba(192,38,211,.2);
+  border-color:var(--pink);color:#fff;
+  transform:translateY(-3px);
+  box-shadow:0 0 14px rgba(192,38,211,.4);
+}
+
+/* ── RIGHT PANELS ── */
+.ps-right-panels{
+  width:148px;flex-shrink:0;
+  background:rgba(8,4,28,.95);
+  border-left:1px solid var(--panel-border);
+  display:flex;flex-direction:column;
+  z-index:10;overflow-y:auto;
+  backdrop-filter:blur(8px);
+}
+.rp-panel{border-bottom:1px solid var(--panel-border);}
+.rp-panel-hdr{
+  background:rgba(20,10,60,.8);
+  padding:5px 8px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--panel-border);
+}
+.rp-panel-hdr span{font-family:'Space Mono',monospace;font-size:9px;color:var(--pink);text-transform:uppercase;letter-spacing:.1em;}
+.rp-panel-hdr i{font-size:10px;color:var(--text-dim);}
+
+/* layers */
+.rp-layer{
+  display:flex;align-items:center;gap:6px;
+  padding:5px 8px;border-bottom:1px solid rgba(147,80,255,.08);cursor:pointer;
+}
+.rp-layer:hover{background:rgba(147,80,255,.1);}
+.rp-layer.is-sel{background:rgba(91,45,190,.3);border-left:2px solid var(--pink);}
+.l-thumb{width:22px;height:18px;border-radius:2px;flex-shrink:0;border:1px solid rgba(255,255,255,.1);}
+.l-info{flex:1;min-width:0;}
+.l-name{font-family:'Space Mono',monospace;font-size:8.5px;color:var(--text-bright);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.l-type{font-family:'Space Mono',monospace;font-size:7.5px;color:var(--text-dim);display:block;}
+.l-eye{font-size:9px;color:var(--text-dim);}
+
+/* swatches */
+.rp-swatch-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;padding:8px;}
+.rp-swatch{
+  aspect-ratio:1;border-radius:3px;cursor:pointer;
+  border:1px solid rgba(255,255,255,.1);transition:transform .15s;
+}
+.rp-swatch:hover{transform:scale(1.2);position:relative;z-index:2;}
+
+/* character */
+.rp-char-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:3px 8px;border-bottom:1px solid rgba(147,80,255,.08);
+}
+.rp-char-label{font-family:'Space Mono',monospace;font-size:8px;color:var(--text-dim);}
+.rp-char-val{font-family:'Space Mono',monospace;font-size:8px;color:var(--cyan);}
+
+/* color wheel */
+.rp-cwheel{padding:10px;display:flex;justify-content:center;}
+
+/* ── BOTTOM STATUS ── */
+.ps-statusbar{
+  background:rgba(8,4,28,.95);
+  border-top:1px solid var(--panel-border);
+  height:20px;
+  display:flex;align-items:center;padding:0 12px;gap:16px;
+  flex-shrink:0;z-index:10;
+  backdrop-filter:blur(6px);
+}
+.ps-stat{font-family:'Space Mono',monospace;font-size:8px;color:var(--text-dim);}
+.ps-stat b{color:var(--text-bright);}
+.ps-stat-accent{color:var(--pink);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .ps-right-panels{display:none;}
+  .ps-doc{margin-left:8px;margin-top:8px;padding:24px 16px 22px;min-height:320px;}
+  .ps-toolbar-left{width:36px;}
+  .tool-btn{width:28px;height:28px;font-size:13px;}
+  .hero-title{font-size:clamp(1.8rem,7vw,2.8rem);}
+  .cw-ps,.cw-ai,.cw-ae,.cw-pr,.cw-id{display:none;}
+  .gp-hello,.gp-october{display:none;}
+}
+@media(max-width:480px){
+  .ps-toolbar-left{display:none;}
+  .ps-doc{margin-left:8px;}
+  .hero-stickers .sticker-tag:nth-child(n+4){display:none;}
+}
+</style>
 <body>
 
    
@@ -54,39 +454,234 @@
 </header>
 
     <!-- banner -->
-    <div class="banner-container">
-     <div class="banner-text">
-        <h1>Think. Build. Inspire.</h1>
-        <p>Frontend Web Developer || Graphic Designer </p>
-     </div>
-         <div class="hero-img">
-            <img src="img/ben.png" alt="">
-         </div>
+  <div class="hero-wrap">
 
-        <!-- <div class="banner-text">
-            <h1>Benjamin</h1>
-            <h2>Frontend Web Developer</h2>
-            <p>I'm excited to share my creative journey with you. Explore my projects, <br> skills, and the passion I
-                bring to each design. Let's create something amazing together!</p>
-           
-        </div> -->
-        <div class="social">
- <a href="https://pin.it/5SqKvSihF" target="_blank">
-                <i class="fa-brands fa-pinterest"></i>
-            </a>
-            <a href="https://web.facebook.com/gh.kojosweet.5"> <i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.tiktok.com/@benjaminoheneasare?lang=en"> <i class="fa-brands fa-tiktok"></i></a>
-            <a href="https://github.com/Benjamin-Ohene-Asare"> <i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/benjamin-ohene-asare/"> <i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://wa.link/8gw4oo"> <i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-        <!-- <div class="arrow">
-            <a href="#about">
-                <i class="fa-solid fa-arrow-down"></i>
+  <!-- Background -->
+  <div class="bg-layer">
+    <div class="bg-radial-blue"></div>
+    <div class="bg-radial-mag"></div>
+    <div class="bg-ring ring-1"></div>
+    <div class="bg-ring ring-2"></div>
+    <div class="bg-ring ring-3"></div>
+  </div>
 
-            </a>
-        </div> -->
+  <!-- Menu bar -->
+  <div class="ps-topbar">
+    <div style="display:flex;gap:2px;">
+      <div class="ps-menu-item">File</div>
+      <div class="ps-menu-item">Edit</div>
+      <div class="ps-menu-item">Image</div>
+      <div class="ps-menu-item">Layer</div>
+      <div class="ps-menu-item">Type</div>
+      <div class="ps-menu-item">Select</div>
+      <div class="ps-menu-item">Filter</div>
+      <div class="ps-menu-item">View</div>
     </div>
+    <div class="ps-topbar-right">
+      <div class="ps-win-btn" style="background:#ff5f57;"></div>
+      <div class="ps-win-btn" style="background:#ffbd2e;"></div>
+      <div class="ps-win-btn" style="background:#28ca41;"></div>
+    </div>
+  </div>
+
+  <!-- Options bar -->
+  <div class="ps-optbar">
+    <span class="opt-label">Tool:</span>
+    <span class="opt-val">Move V</span>
+    <div class="opt-sep"></div>
+    <span class="opt-label">Opacity:</span>
+    <span class="opt-val">100%</span>
+    <div class="opt-sep"></div>
+    <span class="opt-label">Mode:</span>
+    <span class="opt-val">Normal</span>
+    <div class="opt-sep"></div>
+    <span class="opt-label" style="margin-left:auto;color:var(--pink);">benjamin-portfolio.psd @ 100%</span>
+  </div>
+
+  <!-- Stage -->
+  <div class="ps-stage">
+
+    <!-- Toolbar -->
+    <div class="ps-toolbar-left">
+      <div class="tool-btn is-active"><i class="ti ti-arrows-move"></i></div>
+      <div class="tool-btn"><i class="ti ti-select"></i></div>
+      <div class="tool-sep"></div>
+      <div class="tool-btn"><i class="ti ti-crop"></i></div>
+      <div class="tool-btn"><i class="ti ti-brush"></i></div>
+      <div class="tool-btn"><i class="ti ti-eraser"></i></div>
+      <div class="tool-sep"></div>
+      <div class="tool-btn"><i class="ti ti-bucket"></i></div>
+      <div class="tool-btn"><i class="ti ti-eyeglass"></i></div>
+      <div class="tool-btn"><i class="ti ti-typography"></i></div>
+      <div class="tool-sep"></div>
+      <div class="tool-btn"><i class="ti ti-pencil"></i></div>
+      <div class="tool-btn"><i class="ti ti-shape"></i></div>
+      <div class="tool-btn"><i class="ti ti-zoom-in"></i></div>
+      <div class="tool-sep"></div>
+      <div class="fg-bg-wrap">
+        <div class="fg-sq"></div>
+        <div class="bg-sq"></div>
+      </div>
+    </div>
+
+    <!-- Canvas -->
+    <div class="ps-canvas-area">
+      <div class="ruler-h" id="rulerH"></div>
+      <div class="ruler-v" id="rulerV"></div>
+
+      <!-- Floating cubes -->
+      <div class="cube-wrap cw-ps"><div class="cube"><span>Ps</span><span class="cube-label">Ps</span></div></div>
+      <div class="cube-wrap cw-ai"><div class="cube"><span>Ai</span><span class="cube-label">Ai</span></div></div>
+      <div class="cube-wrap cw-ae"><div class="cube"><span>Ae</span><span class="cube-label">Ae</span></div></div>
+      <div class="cube-wrap cw-pr"><div class="cube"><span>Pr</span><span class="cube-label">Pr</span></div></div>
+      <div class="cube-wrap cw-id"><div class="cube"><span>Id</span><span class="cube-label">Id</span></div></div>
+
+      <!-- Glass pills -->
+      <div class="glass-pill gp-hello">Hello 👋</div>
+      <div class="glass-pill gp-october">Think.<br>Build.</div>
+
+      <!-- Doc -->
+      <div class="ps-doc">
+        <div class="doc-stripe"></div>
+        <div class="doc-glow-ring dgr-1"></div>
+        <div class="doc-glow-ring dgr-2"></div>
+        <div class="doc-glow-spot dgs-1"></div>
+        <div class="doc-glow-spot dgs-2"></div>
+        <div class="doc-glow-spot dgs-3"></div>
+        <div class="doc-selection"></div>
+
+        <div class="hero-eyebrow">
+          <div class="eyebrow-chip chip-dev"><i class="ti ti-code" style="font-size:10px;"></i> Frontend Dev</div>
+          <div class="eyebrow-dot"></div>
+          <div class="eyebrow-chip chip-des"><i class="ti ti-palette" style="font-size:10px;"></i> Graphic Designer</div>
+        </div>
+
+        <div class="hero-title">
+          <span class="ht-w1">Think.</span><br>
+          <span class="ht-w2">Build.</span><br>
+          <span class="ht-w3">Inspire.</span>
+        </div>
+
+        <div class="hero-colorbar">
+          <div class="hcb-s" style="background:#22d3ee;"></div>
+          <div class="hcb-s" style="background:#60a5fa;"></div>
+          <div class="hcb-s" style="background:#a78bfa;"></div>
+          <div class="hcb-s" style="background:#c026d3;"></div>
+          <div class="hcb-s" style="background:#e879f9;"></div>
+          <div class="hcb-s" style="background:#f0abfc;"></div>
+        </div>
+
+        <div class="hero-stickers">
+          <div class="sticker-tag st-html">HTML5</div>
+          <div class="sticker-tag st-css">CSS3</div>
+          <div class="sticker-tag st-ps">Photoshop</div>
+          <div class="sticker-tag st-ai">Illustrator</div>
+          <div class="sticker-tag st-fig">Figma</div>
+        </div>
+
+        <div class="hero-social">
+          <a href="https://pin.it/5SqKvSihF" target="_blank"><i class="fa-brands fa-pinterest"></i></a>
+          <a href="https://web.facebook.com/gh.kojosweet.5" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.tiktok.com/@benjaminoheneasare" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://github.com/Benjamin-Ohene-Asare" target="_blank"><i class="fa-brands fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/benjamin-ohene-asare/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://wa.link/8gw4oo" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panels -->
+    <div class="ps-right-panels">
+
+      <div class="rp-panel">
+        <div class="rp-panel-hdr"><span>Layers</span><i class="ti ti-chevron-down"></i></div>
+        <div class="rp-layer is-sel">
+          <div class="l-thumb" style="background:linear-gradient(135deg,#22d3ee,#a78bfa);"></div>
+          <div class="l-info"><span class="l-name">Hero Text</span><span class="l-type">T Type</span></div>
+          <span class="l-eye"><i class="ti ti-eye"></i></span>
+        </div>
+        <div class="rp-layer">
+          <div class="l-thumb" style="background:linear-gradient(135deg,#5b2dbe,#c026d3);"></div>
+          <div class="l-info"><span class="l-name">Glow Orbs</span><span class="l-type">⬡ Shape</span></div>
+          <span class="l-eye"><i class="ti ti-eye"></i></span>
+        </div>
+        <div class="rp-layer">
+          <div class="l-thumb" style="background:#31a8ff;"></div>
+          <div class="l-info"><span class="l-name">Ps Cube</span><span class="l-type">⬡ Smart</span></div>
+          <span class="l-eye"><i class="ti ti-eye"></i></span>
+        </div>
+        <div class="rp-layer">
+          <div class="l-thumb" style="background:#ff9a00;"></div>
+          <div class="l-info"><span class="l-name">Ai Cube</span><span class="l-type">⬡ Smart</span></div>
+          <span class="l-eye"><i class="ti ti-eye"></i></span>
+        </div>
+        <div class="rp-layer">
+          <div class="l-thumb" style="background:linear-gradient(135deg,#0a0520,#2d0a6e);"></div>
+          <div class="l-info"><span class="l-name">Background</span><span class="l-type">⬡ Fill</span></div>
+          <span class="l-eye"><i class="ti ti-eye"></i></span>
+        </div>
+      </div>
+
+      <div class="rp-panel">
+        <div class="rp-panel-hdr"><span>Swatches</span><i class="ti ti-chevron-down"></i></div>
+        <div class="rp-swatch-grid">
+          <div class="rp-swatch" style="background:#22d3ee;"></div>
+          <div class="rp-swatch" style="background:#60a5fa;"></div>
+          <div class="rp-swatch" style="background:#a78bfa;"></div>
+          <div class="rp-swatch" style="background:#c026d3;"></div>
+          <div class="rp-swatch" style="background:#e879f9;"></div>
+          <div class="rp-swatch" style="background:#31a8ff;"></div>
+          <div class="rp-swatch" style="background:#ff9a00;"></div>
+          <div class="rp-swatch" style="background:#ea6bde;"></div>
+          <div class="rp-swatch" style="background:#0a0520;"></div>
+          <div class="rp-swatch" style="background:#fff;border:1px solid #333;"></div>
+        </div>
+      </div>
+
+      <div class="rp-panel">
+        <div class="rp-panel-hdr"><span>Character</span><i class="ti ti-chevron-down"></i></div>
+        <div class="rp-char-row"><span class="rp-char-label">Font</span><span class="rp-char-val">Syne</span></div>
+        <div class="rp-char-row"><span class="rp-char-label">Style</span><span class="rp-char-val">ExtraBold</span></div>
+        <div class="rp-char-row"><span class="rp-char-label">Size</span><span class="rp-char-val">72 pt</span></div>
+        <div class="rp-char-row"><span class="rp-char-label">Tracking</span><span class="rp-char-val">-50</span></div>
+        <div class="rp-char-row"><span class="rp-char-label">Color</span><span class="rp-char-val" style="color:#e879f9;">■ #E879F9</span></div>
+      </div>
+
+      <div class="rp-panel">
+        <div class="rp-panel-hdr"><span>Color</span><i class="ti ti-chevron-down"></i></div>
+        <div class="rp-cwheel">
+          <svg width="90" height="90" viewBox="0 0 90 90">
+            <defs>
+              <linearGradient id="cg1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#22d3ee"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient>
+              <linearGradient id="cg2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#a78bfa"/></linearGradient>
+              <linearGradient id="cg3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#c026d3"/></linearGradient>
+              <linearGradient id="cg4" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c026d3"/><stop offset="100%" stop-color="#e879f9"/></linearGradient>
+              <linearGradient id="cg5" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e879f9"/><stop offset="100%" stop-color="#31a8ff"/></linearGradient>
+              <linearGradient id="cg6" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#31a8ff"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient>
+            </defs>
+            <circle cx="45" cy="45" r="38" fill="none" stroke="url(#cg1)" stroke-width="13" stroke-dasharray="40 160"/>
+            <circle cx="45" cy="45" r="38" fill="none" stroke="url(#cg2)" stroke-width="13" stroke-dasharray="40 160" stroke-dashoffset="-40"/>
+            <circle cx="45" cy="45" r="38" fill="none" stroke="url(#cg3)" stroke-width="13" stroke-dasharray="40 160" stroke-dashoffset="-80"/>
+            <circle cx="45" cy="45" r="38" fill="none" stroke="url(#cg4)" stroke-width="13" stroke-dasharray="40 160" stroke-dashoffset="-120"/>
+            <circle cx="45" cy="45" r="38" fill="none" stroke="url(#cg5)" stroke-width="13" stroke-dasharray="40 160" stroke-dashoffset="-160"/>
+            <circle cx="45" cy="45" r="38" fill="none" stroke="url(#cg6)" stroke-width="13" stroke-dasharray="40 160" stroke-dashoffset="-200"/>
+            <circle cx="45" cy="45" r="26" fill="#0a0520"/>
+            <circle cx="45" cy="45" r="16" fill="#c026d3" opacity=".8"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Status bar -->
+  <div class="ps-statusbar">
+    <span class="ps-stat"><b>Doc:</b> 1440×900 px</span>
+    <span class="ps-stat"><b>RGB/8#</b></span>
+    <span class="ps-stat" style="margin-left:auto;"><b class="ps-stat-accent">Benjamin Ohene-Asare</b> &nbsp;·&nbsp; Portfolio 2025 &nbsp;|&nbsp; <b>Zoom: 100%</b></span>
+  </div>
+
+</div>
 
 
 
@@ -794,6 +1389,34 @@ handleScroll();
   });
 </script>
 
+
+<script>
+(function(){
+  const rh=document.getElementById('rulerH');
+  const rv=document.getElementById('rulerV');
+  if(!rh||!rv)return;
+  for(let i=0;i<80;i++){
+    const t=document.createElement('div');
+    t.className='rtick';
+    t.style.left=(i*16)+'px';
+    t.style.height=i%5===0?'8px':'4px';
+    rh.appendChild(t);
+    if(i%10===0&&i>0){
+      const n=document.createElement('span');
+      n.className='ruler-num';n.textContent=i*16;
+      n.style.left=(i*16+2)+'px';
+      rh.appendChild(n);
+    }
+  }
+  for(let i=0;i<40;i++){
+    const t=document.createElement('div');
+    t.className='rtick';
+    t.style.top=(i*16)+'px';
+    t.style.width=i%5===0?'8px':'4px';
+    rv.appendChild(t);
+  }
+})();
+</script>
 
 
 

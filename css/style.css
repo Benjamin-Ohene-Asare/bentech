@@ -11,7 +11,7 @@ html{
 header{
     position: relative;
     width: 100%;
-    min-height:20vh;
+    min-height:10vh;
   
 }
 
@@ -80,7 +80,8 @@ body{
 /* second-header */
 .second-header{
     padding: 10px 10%;
-   background-color: #580183;
+    background:radial-gradient(circle,rgba(45,27,142,.7) 0%,transparent 70%);
+
     min-height: 10vh;
     display: flex;
     align-items: center;
@@ -107,7 +108,7 @@ font-weight: bolder;
 color: var(--color) ;
 }
 
-
+/* 
 .banner-container{
     position: relative;
     width: 100%;
@@ -133,7 +134,7 @@ background: radial-gradient(circle, #DF33DF 0%, #000000 50%, #000000 100%);
   font-size: 2rem;
   color: #fff;
 }
-
+ */
 
 
 
